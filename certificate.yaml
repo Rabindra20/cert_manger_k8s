@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-app
+  namespace: demo
+spec:
+  #duration: h # 90d
+ # renewBefore: 240h
+  dnsNames:
+    - <> #eg:-example.com
+  secretName: example-app-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
